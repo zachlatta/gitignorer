@@ -15,7 +15,7 @@ OTHER_FILES = Makefile \
 			  README.md \
 			  LICENSE.md
 
-VERSION = $(shell command | grep '^#define VERSION ' $(MAIN_CC) | sed 's/^define VERSION //')
+VERSION = $(shell command | grep '^\#define VERSION ' $(MAIN_CC) | sed 's/^define VERSION //')
 
 $(NAME) : $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o $(gitignorer)

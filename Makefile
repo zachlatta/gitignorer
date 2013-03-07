@@ -1,6 +1,5 @@
 NAME = gitignorer
 
-OBJS = main.o
 CC = g++
 DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
@@ -10,27 +9,31 @@ SDIR = src
 TDIR = test
 ODIR = obj
 
-MAIN_CC = $(SDIR)/main.cc
+MAIN = $(SDIR)/main.cc
+SRCS = 
+OBJS = main.o
 OTHER_FILES = Makefile \
 			  README.md \
 			  LICENSE.md
 
-VERSION = $(shell command | grep '^\#define VERSION ' $(MAIN_CC) | sed 's/^define VERSION //')
+VERSION = $(shell command | sed -n 's/^\#define VERSION //p' $(MAIN))
+
+all: $(NAME) clean
 
 $(NAME) : $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o $(gitignorer)
-
-$(ODIR)/%.o : %.cc
-	$(CC) $(CFLAGS) $(MAIN_CC) $(MOD_CC)
+	$(CC) $(CFLAGS) -o $@ ${OBJS}
 
 clean:
-	rm -rf $(ODIR)
+	rm -rf *.o core *.core
+
+.cc.o :
+	$(CC) $(CFLAGS) -c %<
 
 tar:
 	echo "Creating $(VERSION)-$(NAME).tar.gz"
 	mkdir $(VERSION)
 	mkdir $(VERSION)/$(SDIR)
-	cp $(MAIN_CC) $(VERSION)/$(SDIR)
+	cp $(MAIN) $(VERSION)/$(SDIR)
 	mkdir $(VERSION)/$(TDIR)
 	cp $(OTHER_FILES) $(VERSION)
 	tar cfv $(VERSION)-$(NAME).tar $(VERSION)

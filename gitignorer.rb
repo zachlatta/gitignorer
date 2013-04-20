@@ -1,42 +1,35 @@
 #!/usr/bin/env ruby 
 
 # == Synopsis 
-#   This is a sample description of the application.
-#   Blah blah blah.
+#   Gitignorer is a wonderful little application to make creating
+#   gitignores easier. It plugs into GitHub's gitignore repository
+#   and generates a bootstrap gitignore for you.
 #
 # == Examples
-#   This command does blah blah blah.
-#     ruby_cl_skeleton foo.txt
+#   This command creates a new gitignore with the Java template
+#     gitignorer create -Java
 #
 #   Other examples:
-#     ruby_cl_skeleton -q bar.doc
-#     ruby_cl_skeleton --verbose foo.html
+#     gitignorer create -Java -Android -Maven
+#     gitignorer create -C++
 #
 # == Usage 
-#   ruby_cl_skeleton [options] source_file
+#   gitignorer [action] [options]
 #
-#   For help use: ruby_cl_skeleton -h
+#   For help use: gitignorer -h
 #
 # == Options
 #   -h, --help          Displays help message
 #   -v, --version       Display the version, then exit
 #   -q, --quiet         Output as little as possible, overrides verbose
 #   -V, --verbose       Verbose output
-#   TO DO - add additional options
 #
 # == Author
-#   YourName
+#   Zachary Latta
 #
 # == Copyright
-#   Copyright (c) 2007 YourName. Licensed under the MIT License:
+#   Copyright (c) 2013 Zachary Latta. Licensed under the MIT License:
 #   http://www.opensource.org/licenses/mit-license.php
-
-
-# TO DO - replace all ruby_cl_skeleton with your app name
-# TO DO - replace all YourName with your actual name
-# TO DO - update Synopsis, Examples, etc
-# TO DO - change license if necessary
-
 
 
 require 'optparse' 
@@ -94,8 +87,7 @@ Finished at #{DateTime.now}" if @options.verbose
       opts.on('-h', '--help')       { output_help }
       opts.on('-V', '--verbose')    { @options.verbose = true }  
       opts.on('-q', '--quiet')      { @options.quiet = true }
-      # TO DO - add additional options
-            
+
       opts.parse!(@arguments) rescue return false
       
       process_options
@@ -118,7 +110,7 @@ Finished at #{DateTime.now}" if @options.verbose
 
     # True if required arguments were provided
     def arguments_valid?
-      # TO DO - implement your real logic here
+      # TO DO - implement real logic here
       true if @arguments.length == 1 
     end
     

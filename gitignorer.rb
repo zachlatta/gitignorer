@@ -152,6 +152,15 @@ end
 
 # TO DO - Add your Modules, Classes, etc
 
+class Gitignore
+  attr_accessor :title, :content
+
+  def initialize(title, content)
+    @title = title
+    @content = content
+  end
+end
+
 
 # Create and run the application
 app = App.new(ARGV, STDIN)

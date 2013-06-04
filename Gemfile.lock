@@ -3,7 +3,7 @@ PATH
   specs:
     Gitignorer (0.0.1)
       commander (~> 4.1.3)
-      octonore (~> 1.0.0)
+      octonore
 
 GEM
   remote: http://rubygems.org/

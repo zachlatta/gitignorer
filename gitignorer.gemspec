@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_dependency 'commander', '~> 4.1.3'
-  s.add_dependency 'octonore',  '~> 1.0.0'
+  s.add_dependency 'octonore'
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")

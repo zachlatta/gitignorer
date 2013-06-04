@@ -6,6 +6,7 @@ group :development, :test do
   gem 'vcr',       '~> 2.5.0'
   gem 'rake',      '~> 10.0.4'
   gem 'coveralls', '~> 0.6.7', require: false
+  gem 'fakefs',    '~> 0.4.2'
 end
 
 gemspec

@@ -1,28 +1,44 @@
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-require 'gitignorer'
-
 Gem::Specification.new do |s|
+  s.name        = 'gitignorer'
+  s.version     = '0.0.1'
+  s.license     = 'MIT'
+  s.date        = '2013-06-01'
+  s.summary     = 'The best way to create gitignores.'
+  s.description = 'Gitignorer is only the best way to create gitignores.'
+
   s.authors  = ['Zach Latta']
   s.email    = 'zchlatta@gmail.com'
   s.homepage = 'http://rubygems.org/gems/gitignorer'
 
-  s.name        = 'Gitignorer'
-  s.version     = Gitignorer::VERSION
-  s.date        = '2013-06-01'
-  s.summary     = 'Only the best way to create gitignore templates.'
-  s.description = s.summary
+  s.require_paths = %[lib]
 
-  s.license = 'MIT'
+  s.executables = ["gitignorer"]
+
+  s.add_runtime_dependency 'commander', '~> 4.1.3'
+  s.add_runtime_dependency 'octonore',  '~> 1.0.1'
+
   s.add_development_dependency 'bundler', '~> 1.0'
-  s.add_dependency 'commander', '~> 4.1.3'
-  s.add_dependency 'octonore'
+  s.add_development_dependency 'rspec',     '~> 2.13.0'
+  s.add_development_dependency 'webmock',   '~> 1.11.0'
+  s.add_development_dependency 'vcr',       '~> 2.5.0'
+  s.add_development_dependency 'rake',      '~> 10.0.4'
+  s.add_development_dependency 'coveralls', '~> 0.6.7'
+  s.add_development_dependency 'fakefs',    '~> 0.4.2'
 
-  s.files       = `git ls-files`.split("\n")
-  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables = `git ls-files -- bin/*`.split("\n").map { |f|
-                    File.basename(f)
-                  }
-  s.require_paths = ['lib']
+  # = MANIFEST =
+  s.files = %w[
+    Gemfile
+    LICENSE.md
+    README.md
+    Rakefile
+    bin/gitignorer
+    gitignorer.gemspec
+    lib/gitignorer.rb
+    lib/gitignorer/commands/create.rb
+    spec/spec_helper.rb
+    spec/lib/gitignore/commands/create_spec.rb
+  ]
+  # = MANIFEST =
+  
+  s.test_files = s.files.select { |path| path =~ /^spec\/spec|_spec.rb$/ }
 end

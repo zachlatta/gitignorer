@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    Gitignorer (0.0.1)
+    gitignorer (0.0.1)
       commander (~> 4.1.3)
-      octonore
+      octonore (~> 1.0.1)
 
 GEM
   remote: http://rubygems.org/
@@ -28,7 +28,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.6)
     multi_xml (0.5.4)
-    octonore (1.0.0)
+    octonore (1.0.1)
       httparty (~> 0.11.0)
     rake (10.0.4)
     rest-client (1.6.7)
@@ -55,10 +55,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Gitignorer!
   bundler (~> 1.0)
   coveralls (~> 0.6.7)
   fakefs (~> 0.4.2)
+  gitignorer!
   rake (~> 10.0.4)
   rspec (~> 2.13.0)
   vcr (~> 2.5.0)

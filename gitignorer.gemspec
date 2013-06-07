@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'commander', '~> 4.1.3'
   s.add_runtime_dependency 'octonore',  '~> 1.0.1'
 
-  s.add_development_dependency 'bundler', '~> 1.0'
+  s.add_development_dependency 'bundler',   '~> 1.0'
   s.add_development_dependency 'rspec',     '~> 2.13.0'
   s.add_development_dependency 'webmock',   '~> 1.11.0'
   s.add_development_dependency 'vcr',       '~> 2.5.0'

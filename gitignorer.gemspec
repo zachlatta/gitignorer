@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email    = 'zchlatta@gmail.com'
   s.homepage = 'http://rubygems.org/gems/gitignorer'
 
-  s.require_paths = %[lib]
+  s.require_paths = %w[lib]
 
   s.executables = ["gitignorer"]
 

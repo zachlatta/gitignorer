@@ -1,8 +1,6 @@
 require 'coveralls'
 Coveralls.wear!
 
-require_relative '../lib/gitignorer'
-
 require 'gitignorer'
 require 'webmock/rspec'
 require 'vcr'

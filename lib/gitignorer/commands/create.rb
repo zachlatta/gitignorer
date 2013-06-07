@@ -57,10 +57,12 @@ module Gitignorer
         # @return (String) Template header
         def template_header(name)
           space = 3
-          # Sorry for the ugly that follows
-          header = "#{ '#' * 2 * space + '#' * name.length + '#' * 2}\n" +
-                   "##{ ' ' * space }#{ name }#{ ' ' * space }#\n" +
-                   "#{ '#' +'#' * 2 * space + '#' * name.length + '#'}\n"
+          
+          bar     = '#' * 2 + '#' * space + '#' * name.length
+          padding = '#' + ' ' * space
+          header  = "#{ bar }\n" +
+                    "#{ padding  + name + padding.reverse }\n" +
+                    "#{ bar }\n"
         end
       end
     end

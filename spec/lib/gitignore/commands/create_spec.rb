@@ -26,8 +26,6 @@ describe Gitignorer::Commands::Create do
   it 'should create a new template' do
     Gitignorer::Commands::Create.process(["Java", "Maven"])
     File.exists?(".gitignore").should == true
-
-    file = File.open('.gitignore', 'rb')
   end
 
 end

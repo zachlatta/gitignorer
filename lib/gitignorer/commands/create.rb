@@ -59,7 +59,7 @@ module Gitignorer
           space = 3
           
           # Should be something like '############'
-          bar     = '#' * 2 + '#' * space + '#' * name.length
+          bar     = '#' * 4 + '#' * space + '#' * name.length
           # Should be something like '#   '
           padding = '#' + ' ' * space
           # Will end up looking similar to the following:

@@ -27,5 +27,13 @@ describe Gitignorer::Commands::Create do
     Gitignorer::Commands::Create.process(["Java", "Maven"])
     File.exists?(".gitignore").should == true
   end
+  
+  it 'should create the proper heading in new templates' do
+    Gitignorer::Commands::Create.process(["Ruby"])
+    contents = File.read('.gitignore')
+    contents.should include "############\n" +
+                            "#   Ruby   #\n" +
+                            "############\n"
+  end
 
 end

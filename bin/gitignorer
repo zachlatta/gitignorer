@@ -25,3 +25,13 @@ command :create do |c|
   end
 end
 
+command :list do |c|
+  c.syntax = 'gitignorer list'
+  c.description = 'List all available templates.'
+  c.example 'List dem templates.',
+            'gitignore list'
+  c.action do |args, options|
+    Gitignorer::Commands::List.process(options.__hash__)
+  end
+end
+

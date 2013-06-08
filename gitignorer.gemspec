@@ -35,8 +35,10 @@ Gem::Specification.new do |s|
     gitignorer.gemspec
     lib/gitignorer.rb
     lib/gitignorer/commands/create.rb
+    lib/gitignorer/commands/list.rb
     spec/spec_helper.rb
     spec/lib/gitignore/commands/create_spec.rb
+    spec/lib/gitignore/commands/list_spec.rb
   ]
   # = MANIFEST =
   

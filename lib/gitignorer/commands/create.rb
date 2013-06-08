@@ -58,8 +58,15 @@ module Gitignorer
         def template_header(name)
           space = 3
           
+          # Should be something like '############'
           bar     = '#' * 2 + '#' * space + '#' * name.length
+          # Should be something like '#   '
           padding = '#' + ' ' * space
+          # Will end up looking similar to the following:
+          #
+          #     ############
+          #     #   Ruby   #
+          #     ############
           header  = "#{ bar }\n" +
                     "#{ padding  + name + padding.reverse }\n" +
                     "#{ bar }\n"

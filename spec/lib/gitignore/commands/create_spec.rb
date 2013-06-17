@@ -36,4 +36,24 @@ describe Gitignorer::Commands::Create do
                             "############\n"
   end
 
+  it 'should ask the user to create a gitignore if one already exists' do
+    output = capture_stdout {
+      Gitignorer::Commands::Create.process(['Ruby'])
+      Gitignorer::Commands::Create.process(['Python'])
+    }
+
+    output.should include "Gitignore exists! Overwrite (y/n): "
+  end
+
+end
+
+def capture_stdout(&block)
+  original_stdout = $stdout
+  $stdout = fake = StringIO.new
+  begin
+    yield
+  ensure
+    $stdout = original_stdout
+  end
+  fake.string
 end

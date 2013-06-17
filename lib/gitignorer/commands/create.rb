@@ -11,7 +11,7 @@ module Gitignorer
             raise ArgumentError.new('Invalid template names.')
           end
 
-          write_gitignore(args)
+          create_gitignore(args)
         end
 
 
@@ -35,7 +35,7 @@ module Gitignorer
         # Generates and writes a gitignore to file.
         #
         # @param template_names (Array) Names of templates to use.
-        def write_gitignore(template_names)
+        def create_gitignore(template_names)
           templates = Octonore::Template.list
           write_string = String.new
 
@@ -48,7 +48,15 @@ module Gitignorer
             end
           end
 
-          File.open('.gitignore', 'w') { |file| file.write(write_string) }
+          if File.exists?('.gitignore')
+            puts 'Gitignore exists! Overwrite (y/n): '
+            
+            if gets.strip.downcase == 'y'
+              File.open('.gitignore', 'w') { |file| file.write(write_string) }
+            end
+          else
+            File.open('.gitignore', 'w') { |file| file.write(write_string) }
+          end
         end
 
         # Gets the template header for the specified template.

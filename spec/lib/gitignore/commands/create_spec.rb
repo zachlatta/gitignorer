@@ -42,7 +42,7 @@ describe Gitignorer::Commands::Create do
       Gitignorer::Commands::Create.process(['Python'])
     }
 
-    output.should include "Gitignore exists! Overwrite (y/n): "
+    output.downcase.should include "overwrite"
   end
 
 end

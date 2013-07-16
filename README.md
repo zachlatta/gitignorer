@@ -4,6 +4,18 @@ gitignorer [![Build Status](https://travis-ci.org/zachlatta/gitignorer.png)](htt
 Only the best way to generate gitignore templates. It's really very neat.
 
 
+Contributing
+============
+
+Everyone is welcome to contribute to the development of gitignorer. Please do
+the following to get started:
+
+1. Fork the repository
+2. Make a new working branch
+3. Make your changes
+4. Submit a pull request with a detailed summary of your changes
+
+
 License
 =======
 

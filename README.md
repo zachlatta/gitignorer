@@ -8,13 +8,13 @@ Gitignorer is the easiest way to generate `.gitignore` files.
 
 ### Examples
 
-Ignore extraneous files from Java and Maven.
-
-    $ gitignorer java maven
-
 Ignore extraneous files from Java, Ruby, and Go.
 
-    $ gitignorer java ruby go
+    $ gitignorer create java ruby go
+
+List all available templates.
+
+    $ gitignorer list
 
 ## Contributing
 

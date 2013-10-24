@@ -11,12 +11,12 @@ var usage = `Gitignorer makes creating .gitignore files easy.
 
 Usage:
 
-gitignorer command [arguments]
+  gitignorer command [arguments]
 
 The commands are:
 
-create    create a .gitignore file
-list      list the available templates
+  create    create a .gitignore file
+  list      list the available templates
 `
 
 var client = github.NewClient(nil)

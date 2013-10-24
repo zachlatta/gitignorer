@@ -128,6 +128,7 @@ The commands are:
 var helpTemplate = `{{if .Runnable}}usage: gitignorer {{.UsageLine}}
 
 {{end}}{{.Long | trim}}
+
 `
 
 // tmpl executes the given template text on data, writing the result to w.

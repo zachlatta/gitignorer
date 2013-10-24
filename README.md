@@ -10,7 +10,7 @@ Gitignorer is the easiest way to generate `.gitignore` files.
 
 Ignore extraneous files from Java, Ruby, and Go.
 
-    $ gitignorer create java ruby go
+    $ gitignorer create Go Java Ruby
 
 List all available templates.
 

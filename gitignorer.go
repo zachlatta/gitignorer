@@ -5,6 +5,7 @@ import (
 	"github.com/zachlatta/go-github/github"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 var usage = `Gitignorer makes creating .gitignore files easy.
@@ -45,20 +46,37 @@ func create(templates []string) {
 	} else {
 		var fileContents string
 		for _, v := range templates {
+			fmt.Println("Fetching template for " + v + "...")
 			gitignore, _, err := client.Gitignores.Get(v)
 			if err != nil {
 				fmt.Println(err)
 				return
 			}
 
-			fileContents += *gitignore.Source
+			header := header(v)
+			fileContents += header + "\n\n" + *gitignore.Source + "\n\n"
 		}
 
+		fileContents = strings.TrimSpace(fileContents)
+
+		fmt.Println("Writing .gitignore file...")
 		err := ioutil.WriteFile(".gitignore", []byte(fileContents), 0644)
 		if err != nil {
 			fmt.Println("Error writing .gitignore file!")
 		}
+		fmt.Println("Done!")
 	}
+}
+
+// Returns something akin to the following:
+//
+// ##########
+// #   Go   #
+// ##########
+func header(name string) string {
+	line := strings.Repeat("#", len(name)+8)
+	mid := "#   " + name + "   #"
+	return line + "\n" + mid + "\n" + line
 }
 
 func list() {

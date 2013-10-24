@@ -1,6 +1,6 @@
 # gitignorer
 
-Gitignorer is the easiest way to generate `.gitignore` files.
+Gitignorer is the easiest way to create `.gitignore` files.
 
 ## Usage
 

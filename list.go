@@ -11,7 +11,7 @@ https://github.com/github/gitignore.
 
 Example usage:
 
-gitignorer list
+  gitignorer list
 
 `,
 }

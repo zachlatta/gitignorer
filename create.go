@@ -13,7 +13,7 @@ var cmdCreate = &Command{
 	UsageLine: "create [languages]",
 	Short:     "create a .gitignore file",
 	Long: `
-Create downloads the gitignore templates for the languages specified from
+Create downloads the .gitignore templates for the languages specified from
 https://github.com/github/gitignore and mashes them together into a .gitignore
 file.
 

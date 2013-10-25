@@ -123,6 +123,8 @@ The commands are:
 {{range .}}{{if .Runnable}}
   {{.Name | printf "%-11s"}} {{.Short}}{{end}}{{end}}
 
+Use "gitignorer help [command]" for more information about a command.
+
 `
 
 var helpTemplate = `{{if .Runnable}}usage: gitignorer {{.UsageLine}}

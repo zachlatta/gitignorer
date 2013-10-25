@@ -34,10 +34,30 @@ func runCreate(cmd *Command, args []string) {
 		os.Exit(2)
 	}
 
+	availableLanguages, _, err := client.Gitignores.List()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s\n", err)
+		os.Exit(2)
+	}
+
+	chosenLanguages := make([]*string, len(args))
+OUTER:
+	for i, n := range args {
+		for _, a := range *availableLanguages {
+			if strings.ToLower(n) == strings.ToLower(a) {
+				chosenLanguages[i] = &a
+				continue OUTER
+			}
+		}
+		// Uh oh, looks like the language the user gave us isn't valid.
+		fmt.Fprintf(os.Stderr, "%s is not a valid template!\n", n)
+		os.Exit(2)
+	}
+
 	var wg sync.WaitGroup
 
-	gitignores := make([]*github.Gitignore, len(args))
-	for index, name := range args {
+	gitignores := make([]*github.Gitignore, len(chosenLanguages))
+	for index, name := range chosenLanguages {
 		wg.Add(1)
 
 		go func(n string, i int, gitignores []*github.Gitignore) {
@@ -50,7 +70,7 @@ func runCreate(cmd *Command, args []string) {
 				return
 			}
 			gitignores[i] = gitignore
-		}(name, index, gitignores)
+		}(*name, index, gitignores)
 	}
 
 	wg.Wait()
@@ -64,7 +84,7 @@ func runCreate(cmd *Command, args []string) {
 	fileContents = strings.TrimSpace(fileContents)
 
 	fmt.Println("Writing .gitignore file...")
-	err := ioutil.WriteFile(".gitignore", []byte(fileContents), 0644)
+	err = ioutil.WriteFile(".gitignore", []byte(fileContents), 0644)
 	if err != nil {
 		fmt.Println("Error writing .gitignore file!")
 		os.Exit(2)

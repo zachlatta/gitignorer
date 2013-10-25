@@ -2,24 +2,26 @@ package main
 
 import (
 	"fmt"
+	"github.com/zachlatta/go-github/github"
 	"io/ioutil"
 	"os"
 	"strings"
+	"sync"
 )
 
 var cmdCreate = &Command{
 	UsageLine: "create [languages]",
 	Short:     "create a .gitignore file",
 	Long: `
-  Create downloads the gitignore templates for the languages specified from
-  https://github.com/github/gitignore and mashes them together into a .gitignore
-  file.
+Create downloads the gitignore templates for the languages specified from
+https://github.com/github/gitignore and mashes them together into a .gitignore
+file.
 
-  Example usage:
+Example usage:
 
-  gitignorer create go
+gitignorer create go
 
-  `,
+`,
 }
 
 func init() {
@@ -32,17 +34,31 @@ func runCreate(cmd *Command, args []string) {
 		os.Exit(2)
 	}
 
-	var fileContents string
-	for _, v := range args {
-		fmt.Println("Fetching template for " + v + "...")
-		gitignore, _, err := client.Gitignores.Get(v)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
+	var wg sync.WaitGroup
 
-		header := header(v)
-		fileContents += header + "\n\n" + *gitignore.Source + "\n\n"
+	gitignores := make([]*github.Gitignore, len(args))
+	for index, name := range args {
+		wg.Add(1)
+
+		go func(n string, i int, gitignores []*github.Gitignore) {
+			defer wg.Done()
+
+			fmt.Println("Fetching template for " + n + "...")
+			gitignore, _, err := client.Gitignores.Get(n)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+			gitignores[i] = gitignore
+		}(name, index, gitignores)
+	}
+
+	wg.Wait()
+
+	var fileContents string
+	for _, g := range gitignores {
+		header := header(*g.Name)
+		fileContents += header + "\n\n" + *g.Source + "\n\n"
 	}
 
 	fileContents = strings.TrimSpace(fileContents)

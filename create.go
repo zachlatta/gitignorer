@@ -19,7 +19,7 @@ file.
 
 Example usage:
 
-gitignorer create go
+  gitignorer create go
 
 `,
 }

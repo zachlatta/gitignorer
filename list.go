@@ -13,7 +13,7 @@ Example usage:
 
 gitignorer list
 
-  `,
+`,
 }
 
 func init() {

@@ -16,6 +16,43 @@ List all available templates.
 
     $ gitignorer list
 
+## Installation
+
+### Linux
+
+#### Arch Linux
+
+Gitignorer is available in the AUR over at
+https://aur.archlinux.org/packages/gitignorer/
+
+#### Ubuntu/Debian
+
+`.deb` packages are available on the
+[releases page](https://github.com/zachlatta/gitignorer/releases).
+
+#### Other Linux
+
+Binaries for other Linux flavors are available on the
+[releases page](https://github.com/zachlatta/gitignorer/releases).
+
+### Mac OS X
+
+    $ brew update
+    $ brew tap zachlatta/gitignorer
+    $ brew install gitignorer
+
+### Other
+
+Binaries for all major platforms are available on the
+[releases page](https://github.com/zachlatta/gitignorer/releases).
+
+### Manually
+
+You'll need Go for this. You can grab it over at http://golang.org/.
+
+    $ go get github.com/zachlatta/gitignorer
+    $ go install github.com/zachlatta/gitignorer
+
 ## Contributing
 
 1. Fork it

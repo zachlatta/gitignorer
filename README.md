@@ -27,8 +27,13 @@ https://aur.archlinux.org/packages/gitignorer/
 
 #### Ubuntu/Debian
 
-`.deb` packages are available on the
-[releases page](https://github.com/zachlatta/gitignorer/releases).
+##### 64 Bit
+
+    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_amd64.deb | dpkg -i /tmp/gitignorer_v1.0.0_amd64.deb
+
+##### 32 Bit
+
+    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_i386.deb | dpkg -i /tmp/gitignorer_v1.0.0_i386.deb
 
 #### Other Linux
 

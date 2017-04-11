@@ -1,4 +1,4 @@
-# gitignorer ![Analytics](https://ga-beacon.appspot.com/UA-34529482-6/gitignorer/readme?pixel)
+# gitignorer
 
 Gitignorer is the easiest way to create `.gitignore` files.
 

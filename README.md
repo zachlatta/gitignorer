@@ -20,11 +20,6 @@ List all available templates.
 
 ### Linux
 
-#### Arch Linux
-
-Gitignorer is available in the AUR over at
-https://aur.archlinux.org/packages/gitignorer/
-
 #### Ubuntu/Debian
 
 ##### 64 Bit

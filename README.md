@@ -4,17 +4,22 @@ Gitignorer is the easiest way to create `.gitignore` files.
 
 ## Usage
 
-    $ gitignorer [options]
-
+```fish
+gitignorer [options]
+```
 ### Examples
 
 Ignore extraneous files from Go, Java, and Ruby.
 
-    $ gitignorer create go java ruby
+```fish
+gitignorer create go java ruby
+```
 
 List all available templates.
 
-    $ gitignorer list
+```fish
+gitignorer list
+```
 
 ## Installation
 
@@ -24,11 +29,15 @@ List all available templates.
 
 ##### 64 Bit
 
-    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_amd64.deb | dpkg -i /tmp/gitignorer_v1.0.0_amd64.deb
+```fish
+wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_amd64.deb | dpkg -i /tmp/gitignorer_v1.0.0_amd64.deb
+```
 
 ##### 32 Bit
 
-    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_i386.deb | dpkg -i /tmp/gitignorer_v1.0.0_i386.deb
+```fish
+wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_i386.deb | dpkg -i /tmp/gitignorer_v1.0.0_i386.deb
+```
 
 #### Other Linux
 
@@ -37,9 +46,11 @@ Binaries for other Linux flavors are available on the
 
 ### Mac OS X
 
-    $ brew update
-    $ brew tap zachlatta/gitignorer
-    $ brew install gitignorer
+```fish
+brew update
+brew tap zachlatta/gitignorer
+brew install gitignorer
+```
 
 ### Other
 
@@ -50,8 +61,10 @@ Binaries for all major platforms are available on the
 
 You'll need Go for this. You can grab it over at http://golang.org/.
 
-    $ go get github.com/zachlatta/gitignorer
-    $ go install github.com/zachlatta/gitignorer
+```fish
+go get github.com/zachlatta/gitignorer
+go install github.com/zachlatta/gitignorer
+```
 
 ## Contributing
 

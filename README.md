@@ -24,11 +24,11 @@ List all available templates.
 
 ##### 64 Bit
 
-    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_amd64.deb | dpkg -i /tmp/gitignorer_v1.0.0_amd64.deb
+    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/1.0.1/gitignorer_1.0.1_amd64.deb; sudo dpkg -i /tmp/gitignorer_1.0.1_amd64.deb
 
 ##### 32 Bit
 
-    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/v1.0.0/gitignorer_v1.0.0_i386.deb | dpkg -i /tmp/gitignorer_v1.0.0_i386.deb
+    $ wget -P /tmp https://github.com/zachlatta/gitignorer/releases/download/1.0.1/gitignorer_1.0.1_i386.deb; sudo dpkg -i /tmp/gitignorer_1.0.1_i386.deb
 
 #### Other Linux
 
